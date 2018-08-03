@@ -5,8 +5,8 @@ title: Overview of how to create and deploy an offer to the Marketplace | Micros
 description: Understand the steps required to become an approved Microsoft developer and create and deploy a virtual machine image, template, data service, or developer service in the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -16,11 +16,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio
+ms.author: mbaldwin
 
 ---
 > [!NOTE]
-> This documentation is no longer current and is not accurate. Please instead go to the Azure Marketplace [Seller Guide](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) for guidance on publishing an offer to Azure Marketplace.
+> This documentation is no longer current and is not accurate. Please instead go to the Azure Marketplace [Seller Guide](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) for guidance on publishing an offer to Azure Marketplace.
 
 # Publish and manage an offer in the Azure Marketplace
 This article is provided to help developers create, deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and use.
@@ -64,21 +64,21 @@ To publish a solution to the Marketplace, follow these steps:
 
     c. Fulfill the [solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md).
 
-2. Create your offer.
+1. Create your offer.
 
     a. Create a [virtual machine](marketplace-publishing-vm-image-creation.md) offer.
 
     b. Create a [solution template](marketplace-publishing-solution-template-creation.md) offer.
 
-3. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
+1. Create your offer [marketing content](marketplace-publishing-push-to-staging.md).
 
-4. Test your offer in staging.
+1. Test your offer in staging.
 
     a. Test your VM offer in [staging](marketplace-publishing-vm-image-test-in-staging.md).
 
     b. Test your solution template offer in [staging](marketplace-publishing-solution-template-test-in-staging.md).
 
-5. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
+1. Deploy your offer to the [Marketplace](marketplace-publishing-push-to-production.md).
 
 
 ### Create and manage a virtual machine image
