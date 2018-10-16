@@ -2,19 +2,12 @@
 title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Microsoft Docs'
 description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: storage
-documentationcenter: ''
 author: jamesbak
 ms.author: jamesbak
-manager: jahogg
-
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.custom: mvc
 
 ---
 
@@ -108,7 +101,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
@@ -122,13 +115,13 @@ Before you begin with this section, you must complete the following prerequisite
 
 Enter the following code into a notebook cell:
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 In the cell, press `Shift` + `Enter` to run the code.
 
 Now in a new cell below this one, enter the following code (replace **FILE_SYSTEM** and **ACCOUNT_NAME** with the same values you used earlier:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
 
 In the cell, press `Shift` + `Enter` to run the code.
 
@@ -144,7 +137,7 @@ Perform the following tasks to run a Spark SQL job on the data.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 

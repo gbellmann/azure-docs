@@ -1,20 +1,14 @@
 ---
-title: Introduction to ML Services on Azure HDInsight | Microsoft Docs
+title: Introduction to ML Services on Azure HDInsight 
 description: Learn how to use ML Services on HDInsight to create applications for big data analysis.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-
 ---
 # Introduction to ML Services and open-source R capabilities on HDInsight
 
@@ -148,6 +142,6 @@ The prices that are associated with an ML Services HDInsight cluster are structu
 
 To learn more about how to use ML Services on HDInsight clusters, see the following topics:
 
-* [Get started with ML Serices cluster on HDInsight](r-server-get-started.md)
+* [Get started with ML Services cluster on HDInsight](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
 * [Storage options for ML Services cluster on HDInsight](r-server-storage.md)

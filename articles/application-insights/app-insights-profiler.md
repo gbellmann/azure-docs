@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
 
 ---
 # Profile live Azure web apps with Application Insights
 
-This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and Azure compute resources. For information regarding [on premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 
@@ -41,9 +41,9 @@ Once you have deployed a Web App, regardless of if you included the App Insights
 
     ![App Setting for Profiler][profiler-app-setting]
 
-### Enable Profiler for Azure compute resources (preview)
+### Enable Profiler for Azure compute resources
 
-For information, see the [preview version of Profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
+For information, see the [version of Profiler for Azure compute resources](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## View profiler data
 
@@ -163,9 +163,12 @@ Here are a few things that you can check:
 * Make sure that your web app has Application Insights SDK 2.2 Beta or later enabled.
 * Make sure that your web app has the **APPINSIGHTS_INSTRUMENTATIONKEY** setting configured with the same instrumentation key that's used by the Application Insights SDK.
 * Make sure that your web app is running on .NET Framework 4.6.
-* If your web app is an ASP.NET Core application, check [the required dependencies](#aspnetcore).
+* If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 
 After Profiler is started, there is a short warmup period during which Profiler actively collects several performance traces. After that, Profiler collects performance traces for two minutes every hour.
+
+> [!NOTE]
+> There is a bug in the profiler agent that prevents it from uploading traces taken from applications running on ASP.NET Core 2.1. We are working on a fix and will have it ready soon.
 
 ### I was using Azure Service profiler. What happened to it?
 
@@ -197,7 +200,7 @@ If you are redeploying your web app to a Web Apps resource with Profiler enabled
 
 *Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-This error occurs if you run Web Deploy from scripts or from the Visual Studio Team Services Deployment Pipeline. The solution is to add the following additional deployment parameters to the Web Deploy task:
+This error occurs if you run Web Deploy from scripts or from the Azure DevOps Deployment Pipeline. The solution is to add the following additional deployment parameters to the Web Deploy task:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
